@@ -16,7 +16,7 @@ const MainLayout = () => {
   return (
     <div className={`flex min-h-screen ${isRTL ? 'rtl' : 'ltr'}`}>
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="flex-1 flex flex-col">
+      <div className={`flex-1 flex flex-col ${sidebarOpen ? 'mr-64' : 'mr-16'} transition-all duration-300`}>
         <Navbar toggleSidebar={toggleSidebar} />
         <main className="flex-1 p-4 md:p-6 bg-background overflow-auto">
           <Outlet />

@@ -1,4 +1,3 @@
-
 export default {
   // Common
   'app.name': 'إلكترا للأدوات',
@@ -27,6 +26,22 @@ export default {
   'common.inactive': 'غير نشط',
   'common.print': 'طباعة',
   'common.dashboard': 'لوحة التحكم',
+  'common.all': 'الكل',
+  'common.completed': 'مكتمل',
+  'common.pending': 'قيد الانتظار',
+  'common.cancelled': 'ملغي',
+  'common.paid': 'مدفوع',
+  'common.partial': 'مدفوع جزئياً',
+  'common.unpaid': 'غير مدفوع',
+  'common.refunded': 'مسترجع',
+  'common.reference': 'المرجع',
+  'common.type': 'النوع',
+  'common.contact': 'معلومات الاتصال',
+  'common.daily': 'يومي',
+  'common.weekly': 'أسبوعي',
+  'common.monthly': 'شهري',
+  'common.quarterly': 'ربع سنوي',
+  'common.yearly': 'سنوي',
 
   // Navigation
   'nav.dashboard': 'لوحة التحكم',
@@ -209,6 +224,10 @@ export default {
   'reports.generate': 'إنشاء التقرير',
   'reports.print': 'طباعة التقرير',
   'reports.export': 'تصدير التقرير',
+  'reports.quantity_sold': 'الكمية المباعة',
+  'reports.revenue': 'الإيرادات',
+  'sales.overview': 'نظرة عامة على المبيعات',
+  'purchases.overview': 'نظرة عامة على المشتريات',
 
   // Settings
   'settings.title': 'الإعدادات',
