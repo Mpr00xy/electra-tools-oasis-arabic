@@ -1,39 +1,24 @@
 
-import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, ReactNode, useEffect } from 'react';
 import i18n from '../i18n';
 
-type Language = 'en' | 'ar';
-
 interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  toggleLanguage: () => void;
   isRTL: boolean;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const savedLanguage = localStorage.getItem('language') as Language;
-    return savedLanguage || 'en';
-  });
-
-  const isRTL = language === 'ar';
+  const isRTL = true;
 
   useEffect(() => {
-    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
-    document.documentElement.lang = language;
-    localStorage.setItem('language', language);
-    i18n.changeLanguage(language);
-  }, [language, isRTL]);
-
-  const toggleLanguage = () => {
-    setLanguage(prevLang => (prevLang === 'en' ? 'ar' : 'en'));
-  };
+    document.documentElement.dir = 'rtl';
+    document.documentElement.lang = 'ar';
+    i18n.changeLanguage('ar');
+  }, []);
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, isRTL }}>
+    <LanguageContext.Provider value={{ isRTL }}>
       {children}
     </LanguageContext.Provider>
   );

@@ -1,9 +1,6 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '@/context/LanguageContext';
 import { 
-  Globe, 
   Building, 
   Percent, 
   Receipt, 
@@ -33,7 +30,6 @@ import {
 
 const Settings = () => {
   const { t } = useTranslation();
-  const { language, setLanguage } = useLanguage();
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -41,15 +37,11 @@ const Settings = () => {
         <h1 className="text-2xl font-bold">{t('settings.title')}</h1>
       </div>
 
-      <Tabs defaultValue="language" className="w-full">
-        <TabsList className="grid grid-cols-4 w-full md:w-3/4 lg:w-1/2">
+      <Tabs defaultValue="company" className="w-full">
+        <TabsList className="grid grid-cols-3 w-full md:w-3/4 lg:w-1/2">
           <TabsTrigger value="company">
             <Building className="h-4 w-4 mr-2" />
             <span className="hidden sm:inline">{t('settings.company')}</span>
-          </TabsTrigger>
-          <TabsTrigger value="language">
-            <Globe className="h-4 w-4 mr-2" />
-            <span className="hidden sm:inline">{t('settings.language')}</span>
           </TabsTrigger>
           <TabsTrigger value="tax">
             <Percent className="h-4 w-4 mr-2" />
@@ -90,43 +82,6 @@ const Settings = () => {
                   </div>
                 </div>
               </div>
-            </CardContent>
-            <CardFooter>
-              <Button className="bg-primary-blue">
-                <Save className="mr-2 h-4 w-4" />
-                {t('common.save')}
-              </Button>
-            </CardFooter>
-          </Card>
-        </TabsContent>
-
-        <TabsContent value="language" className="mt-6">
-          <Card className="shadow-sm">
-            <CardHeader>
-              <CardTitle>{t('settings.language')}</CardTitle>
-              <CardDescription>
-                {t('settings.language_description')}
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <RadioGroup 
-                defaultValue={language} 
-                onValueChange={(value) => setLanguage(value as 'en' | 'ar')}
-                className="space-y-4"
-              >
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="en" id="english" />
-                  <Label htmlFor="english" className="cursor-pointer">
-                    English
-                  </Label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="ar" id="arabic" />
-                  <Label htmlFor="arabic" className="cursor-pointer">
-                    العربية
-                  </Label>
-                </div>
-              </RadioGroup>
             </CardContent>
             <CardFooter>
               <Button className="bg-primary-blue">
